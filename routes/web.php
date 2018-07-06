@@ -9,3 +9,6 @@ Auth::routes();
 Route::resource('users', 'UsersController', ['only' => ['show', 'update', 'edit']]);
 // 话题骨架资源路由
 Route::resource('topics', 'TopicsController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
+
+// 分类下的话题列表资源路由
+Route::resource('categories', 'CategoriesController', ['only'=>['show']]);
