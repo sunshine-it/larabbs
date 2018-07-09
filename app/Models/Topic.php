@@ -7,6 +7,12 @@ class Topic extends Model
     protected $fillable = ['title', 'body', 'category_id', 'excerpt', 'slug'];
 
     // 模型关联
+    // 一对多
+    public function replies()
+    {
+        return $this->hasMany(Reply::class);
+    }
+
     // 一对一
     public function category()
     {
