@@ -15,6 +15,9 @@ Route::resource('categories', 'CategoriesController', ['only'=>['show']]);
 
 // 上传图片路由
 Route::post('upload_image', 'TopicsController@uploadImage')->name('topics.upload_image');
-
+// 回复列表路由
 Route::get('topics/{topic}/{slug?}', 'TopicsController@show')->name('topics.show');
+// 发表表回复路由
 Route::resource('replies', 'RepliesController', ['only' => [ 'store', 'destroy']]);
+// 消息通知路由
+Route::resource('notifications', 'NotificationsController', ['only' => ['index']]);
