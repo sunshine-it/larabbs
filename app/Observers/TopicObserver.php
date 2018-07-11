@@ -8,6 +8,7 @@ use App\Jobs\TranslateSlug;
 
 // creating, created, updating, updated, saving,
 // saved,  deleting, deleted, restoring, restored
+// 监听话题类
 
 class TopicObserver
 {
@@ -29,6 +30,12 @@ class TopicObserver
             // 推送任务到队列
             dispatch(new TranslateSlug($topic));
         }
+    }
+
+    // 话题连带删除/新增了 deleted() 方法来监控话题成功删除的事件
+    public function deleted(Topic $topic)
+    {
+        \DB::table('replies')->where('topic_id', $topic->id)->delete();
     }
 
 }

@@ -24,4 +24,11 @@ class ReplyObserver
     {
         $reply->content = clean($reply->content, 'user_topic_body');
     }
+
+    // 减去话题回复数/使用deleted() 方法来监控『回复删除后』事件：
+    public function deleted(Reply $reply)
+    {
+        // 当回复被删除后，话题的 reply_count 也需要 -1
+        $reply->topic->decrement('reply_count', 1);
+    }
 }
