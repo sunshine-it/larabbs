@@ -9,6 +9,8 @@ use Spatie\Permission\Traits\HasRoles; // 加载 HasRoles
 
 class User extends Authenticatable
 {
+    use Traits\ActiveUserHelper;
+
     // 获取到扩展包提供的所有权限和角色的操作方法
     use HasRoles;
 
