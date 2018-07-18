@@ -1,7 +1,8 @@
 <?php
 
 // 首页路由
-Route::get('/', 'PagesController@root')->name('root');
+// Route::get('/', 'PagesController@root')->name('root');
+Route::get('/', 'TopicsController@index')->name('root');
 
 Auth::routes();
 
